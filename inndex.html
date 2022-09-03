@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+<body>
+    
+
+    <header>
+        <div class="logo">
+            <h1>LibraryStore</h1>
+        </div>
+        <div class="search">
+            <div class="input">
+                <input type="text" placeholder="НАЙДИ СВОЕГО УЧЕНОГО..." >
+            </div>
+            <div class="img">
+                <img src="assets/img/icon/search1.png" alt="">
+            </div>
+        </div>
+        <div class="contact_us">
+            <img src="assets/img/icon/phone.png" alt="">
+            <a href="tel:8 777 555 35 35">8 777 555 35 35</a>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="content_wrapp" id="app">
+        <div class="card" v-for="(itemPeople, index)  in people" :key="itemPeople.id">
+            <div class="face">
+                <img :src="itemPeople.imgUrl" alt="">
+                <h2>
+                    {{itemPeople.name}}
+                </h2>
+                <div class="sub_title">
+                    <p class="birth">
+                        {{itemPeople.date}}
+                    </p>
+                    <p class="discription">
+                        {{itemPeople.description}}
+                    </p>
+                </div>
+                <button class="btn_delete" @click="deleteWriter(index)">
+                    Удалить
+                </button>
+            </div>
+        </div>
+        <div class="card_add">
+            <div class="face">
+                <input type="text" placeholder="Сылка на картинку" v-model="imgUrl">
+                <br>
+                <input type="text" v-model="name" placeholder="Введите имя">
+                <br>
+                <div class="sub_title">
+                    <input type="text" placeholder="Введите годы жизни" v-model="age">
+                    <br>
+                    <input type="text"   placeholder="Введите описание" v-model="description">
+                    <br>
+                </div>
+                <div class="btn_sl">
+                    <button @click="newWriter">
+                        <img src="assets/img/Checkbox-checked.svg" alt="">
+                        Добавить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="footer-1">
+            <div class="logo-footer">
+                <a href="#">LibraryStore</a>
+            </div>
+            <div class="nav_footer">
+                <a href="#">Готов узнать что-то новое?</a>
+                <button>
+                    <a href="#">Начать сейчас</a>
+                </button>
+            </div>
+        </div>
+        <div class="footer-2">
+            <div class="left_footer">
+                <div class="block-1">
+                    <p>Есть идеи как сделать библиотеку лучше? <br>
+                    Оставь заявку и мы с вами обязательно свяжемся!</p>
+                </div>
+                <div class="block-2">
+                        <input placeholder="Ваша почта" type="text">
+                        <button><img src="assets/img/icon/Submit.png" alt=""></button>
+                </div>
+            </div>
+
+
+
+            <div class="right_footer">
+                <div class="help">
+                    <h2>Помощь</h2>
+                    <br>
+                    <a href="#">FAQs</a>
+                    <a href="#">Свяжись с нами</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-3">
+            <div class="left-footer-3">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="right-footer-3">
+                <a href="#"><img src="assets/img/icon/faceebook.png" alt=""></a>
+                <a href="#"><img src="assets/img/icon/twitter.png" alt=""></a>
+                <a href="#"><img src="assets/img/icon/ins.png" alt=""></a>
+            </div>
+        </div>
+        <div class="footer-4">
+            <p>Copyright 2022 LibraryStore</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="assets/scrtpt/main.js"></script>
+</body>
+</html>
